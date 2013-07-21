@@ -30,6 +30,8 @@ v0.1
 
 * is written in `strict JavaScript`_; the source includes `"use strict";` as the first expression.
 
+* relies on the AMD_ module definition and dependency standard.
+
 * unittests which:
 
   - run on the commandline in node_.
@@ -47,6 +49,7 @@ v0.1
   - take an optional `wapi` base URL which defaults to a source detected from the current page URL.
 
 .. _`strict JavaScript`: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
+.. _AMD: http://requirejs.org/docs/whyamd.html
 .. _node: http://nodejs.org
 .. _`LAFS CAP`: https://tahoe-lafs.org/trac/tahoe-lafs/browser/trunk/docs/architecture.rst#capabilities
 
