@@ -56,4 +56,4 @@ v-The-Glorious-Future
 These are feature goals whose design and implementation is not yet clear,
 yet we anticipate incorporating them at some point in the future.
 
-* works in whatever JavaScript sandboxing system becomes standard for LAFS
+* works in whatever JavaScript sandboxing system becomes standard for LAFS.
