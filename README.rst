@@ -1,10 +1,11 @@
 tahoewapi.js
 ============
 
-This is a client library for the Tahoe-LAFS_ `webapi` (aka "wapi")
+This is a client library for the LAFS_ "wapi" (aka the `LAFS webapi`_)
 interface written in JavaScript.
 
-.. _Tahoe-LAFS: https://tahoe-lafs.org
+.. _LAFS: https://tahoe-lafs.org
+.. _`LAFS webapi`: https://tahoe-lafs.org/trac/tahoe-lafs/browser/trunk/docs/frontends/webapi.rst
 
 Related Projects
 ----------------
@@ -48,3 +49,11 @@ v0.1
 .. _`strict JavaScript`: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
 .. _node: http://nodejs.org
 .. _`LAFS CAP`: https://tahoe-lafs.org/trac/tahoe-lafs/browser/trunk/docs/architecture.rst#capabilities
+
+v-The-Glorious-Future
+~~~~~~~~~~~~~~~~~~~~~
+
+These are feature goals whose design and implementation is not yet clear,
+yet we anticipate incorporating them at some point in the future.
+
+* works in whatever JavaScript sandboxing system becomes standard for LAFS
