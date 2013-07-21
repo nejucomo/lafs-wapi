@@ -9,6 +9,11 @@ interface written in JavaScript.
 Related Projects
 ----------------
 
+This repository is the new home for `tahoewapi.js`; the `previous home`_
+is deprecated.
+
+.. _`previous home`: https://bitbucket.org/nejucomo/tahoewapi.js
+
 There are some alternative JavaScript libraries for Tahoe-LAFS; see the
 `Related Projects`_ page.
 
