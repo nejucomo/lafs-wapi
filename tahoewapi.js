@@ -15,7 +15,15 @@
  */
 
 
-var tahoewapi = function() {
+/* tahoewapi.js assumes an AMD compliant module system.
+ * See: http://requirejs.org/docs/whyamd.html
+ */
+
+if (! (typeof define === 'function' && define.amd !== undefined)) {
+  throw new Error('tahoewapi.js requires an AMD module system.');
+}
+
+define('tahoewapi', [], function() {
   // Public Module Interface:
   var module = {
     retrieve: function(cap, callback, errback) {
@@ -150,4 +158,4 @@ var tahoewapi = function() {
 
   return module;
 
-}(); // Construct the module closure.
+});
