@@ -1,5 +1,5 @@
-tahoewapi.js
-============
+lafs-wapi
+=========
 
 This is a client library for the LAFS_ "wapi" (aka the `LAFS webapi`_)
 interface written in JavaScript.
@@ -10,8 +10,8 @@ interface written in JavaScript.
 Related Projects
 ----------------
 
-This repository is the new home for `tahoewapi.js`; the `previous home`_
-is deprecated.
+This repository is the new home for `lafs-wapi`; the `previous home`_
+and name `tahoewapi.js` is deprecated.
 
 .. _`previous home`: https://bitbucket.org/nejucomo/tahoewapi.js
 
