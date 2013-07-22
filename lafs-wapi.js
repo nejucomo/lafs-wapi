@@ -1,4 +1,4 @@
-/* Copyright 2009 Nathan Wilcox
+/* Copyright 2013 Nathan Wilcox
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -11,19 +11,30 @@
  * GNU General Public License for more details.
  *
  * You may retrieve a copy of the GNU General Public License at
- * <http://www.gnu.org/licenses/>.
+ * <http://www.gnu.org/licenses/> or packaged with this code in
+ * gpl-3.0.txt.
  */
 
 
-/* tahoewapi.js assumes an AMD compliant module system.
- * See: http://requirejs.org/docs/whyamd.html
- */
+// Begin UMD boilerplate; see https://github.com/umdjs/umd/blob/master/returnExports.js
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['b'], factory);
+    } else if (typeof exports === 'object') {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like enviroments that support module.exports,
+        // like Node.
+        module.exports = factory(require('b'));
+    } else {
+        // Browser globals (root is window)
+        root.returnExports = factory(root.b);
+    }
 
-if (! (typeof define === 'function' && define.amd !== undefined)) {
-  throw new Error('tahoewapi.js requires an AMD module system.');
-}
+  // And now the actual UMD module definition:
+}(this, function () {
 
-define('tahoewapi', [], function() {
+
   // Public Module Interface:
   var module = {
     retrieve: function(cap, callback, errback) {
@@ -157,5 +168,4 @@ define('tahoewapi', [], function() {
   };
 
   return module;
-
-});
+}));

@@ -19,8 +19,9 @@
     },
   "bugs": { "url": "https://github.com/nejucomo/lafs-wapi/issues" },
 
-  "main": "./lafs-wapi.js",
+  "main": "lafs-wapi.js",
   "files": [
+    "lafs-wapi.js",
     "gpl-3.0.txt",
     "README.rst"
     ],
