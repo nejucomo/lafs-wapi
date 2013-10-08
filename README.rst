@@ -7,10 +7,20 @@ lafs-wapi
 .. _LAFS: https://tahoe-lafs.org
 .. _`LAFS webapi`: https://tahoe-lafs.org/trac/tahoe-lafs/browser/trunk/docs/frontends/webapi.rst
 
+Licensing
+---------
+
+This code is licensed under the GPLv3.  It uses a third-party test
+framework `jasmine` which is licensed under the MIT license.
+
+.. FIXME - add a link for jasmine.
+
 Dependency Management
 ---------------------
 
-There are no dependencies aside from the standard DOM `XMLHttpRequest API`_.
+There are no application runtime dependencies aside from the standard
+DOM `XMLHttpRequest API`_.  The test framework includes a copy of the
+`jasmine` behavioral driven development framework.
 
 .. _`XMLHttpRequest API`: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
 
