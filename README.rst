@@ -1,11 +1,34 @@
 lafs-wapi
 =========
 
-This is a client library for the LAFS_ "wapi" (aka the `LAFS webapi`_)
-interface written in JavaScript.
+**lafs-wapi:** A browser client library for the LAFS_ "wapi" (aka the
+`LAFS webapi`_) interface written in JavaScript.
 
 .. _LAFS: https://tahoe-lafs.org
 .. _`LAFS webapi`: https://tahoe-lafs.org/trac/tahoe-lafs/browser/trunk/docs/frontends/webapi.rst
+
+Dependency Management
+---------------------
+
+There are no dependencies aside from the standard DOM `XMLHttpRequest API`_.
+
+.. _`XMLHttpRequest API`: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+
+For applications using ``lafs-wapi``, it uses the the `Universal Module
+Definition`_ to support dependency management with either `Asynchronous
+Module Definition`_ or "classic" browser management (manually ordered
+``<script>`` tags).
+
+.. _`Universal Module Definition`: https://github.com/umdjs/umd
+.. _`Asynchronous Module Definition`: https://github.com/amdjs/amdjs-api/wiki/AMD
+
+Deployment
+----------
+
+See the `LAFS Grid-App Guide`_ for an overview of design considerations
+when creating LAFS-enabled web applications.
+
+.. _`LAFS Grid-App Guide`: https://github.com/nejucomo/lafs-wapi/blob/master/app-guide.rst
 
 Related Projects
 ----------------
@@ -28,35 +51,18 @@ Here's the planned roadmap:
 v0.1
 ~~~~
 
+* example application with step-by-step instructions.
 * is written in `strict JavaScript`_; the source includes `"use strict";` as the first expression.
 
-* relies on the AMD_ module definition and dependency standard.
+  .. _`strict JavaScript`: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
 
-* unittests which:
-
-  - run on the commandline in node_.
-  - run in browsers.
-
-* `LAFS CAP`_ abstraction which:
-
-  - Verifies the `CAP` format.
-
-* `file` and `directory` abstractions which:
-
-  - can read and write file contents as JS strings with an asynchronous API.
-  - can read and write directory contents as a `JSON` compliant structure with an asynchronous API.
-  - abstract XHRRequest as a dependency injection (for unittesting or alternative transports)
-  - take an optional `wapi` base URL which defaults to a source detected from the current page URL.
-
-.. _`strict JavaScript`: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
-.. _AMD: http://requirejs.org/docs/whyamd.html
-.. _node: http://nodejs.org
-.. _`LAFS CAP`: https://tahoe-lafs.org/trac/tahoe-lafs/browser/trunk/docs/architecture.rst#capabilities
+* uses UMD to facilitate "traditional browser" or AMD dependency management.
+* unittests which run in browsers.
+* integration tests which run in browsers against a true LAFS webapi.
 
 v-The-Glorious-Future
 ~~~~~~~~~~~~~~~~~~~~~
 
-These are feature goals whose design and implementation is not yet clear,
-yet we anticipate incorporating them at some point in the future.
-
+* Node support?  For now this is only a browser library, but if there
+  is overlap for general JS use, this could be split or abstracted.
 * works in whatever JavaScript sandboxing system becomes standard for LAFS.
