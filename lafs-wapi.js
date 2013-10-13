@@ -15,6 +15,8 @@
  * gpl-3.0.txt.
  */
 
+"use strict";
+
 
 // Begin UMD boilerplate; see https://github.com/umdjs/umd/blob/master/amdWeb.js
 (function (root, factory) {
