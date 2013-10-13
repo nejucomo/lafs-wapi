@@ -34,4 +34,4 @@
   // And now the actual UMD module definition:
 }(this, function () {
   return {};
-});
+}));
