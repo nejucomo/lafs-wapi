@@ -3,11 +3,6 @@ describe('lafs-wapi', function () {
     expect(window.lafswapi).toBeDefined();
   });
 
-  it('should be callable with no arguments', function () {
-    var client = lafswapi.Client();
-    expect(client).toBeDefined();
-  });
-
   it('should be callable with a webapi URL', function () {
     var url = 'https://public.wapi.example.com/lafs-v42.59/';
     var client = lafswapi.Client(url);
