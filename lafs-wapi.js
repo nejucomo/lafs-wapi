@@ -35,5 +35,21 @@
 
   // And now the actual UMD module definition:
 }(this, function () {
-  return {};
+  // Return the module:
+  return {
+    /* Return a new Client given a baseurl and an optional XMLHttpRequest
+     * provider.
+     */
+    Client: function (baseurl) {
+
+      // Client instance:
+      return {
+        url: baseurl,
+        get: function (cap) {
+          var xhr = new XMLHttpRequest();
+          throw new Error('Not Implemented: Client.get()');
+        },
+      };
+    },
+  };
 }));
