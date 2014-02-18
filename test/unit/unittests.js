@@ -18,33 +18,38 @@ describe('lafswapi', function () {
         var baseurl = 'https://public.wapi.example.com/lafs-v42.59/';
         var cap = 'URI:FAKE_TEST_CAP:A';
 
-        var xhrobj = jasmine.createSpyObj('XMLHttpRequest instance', ['open', 'send']);
+        // Set up a mock for part of XMLHttpRequest usage:
+        var mockxhr = jasmine.createSpyObj('XMLHttpRequest instance', ['open', 'send']);
+        spyOn(window, 'XMLHttpRequest').andReturn(mockxhr);
 
-        /* TODO: Implement this level of sensitivity later:
-        var onreadystatechangevalue = undefined;
-        Object.defineProperty(
-          xhrobj, 'onreadystatechangevalue',
-          {
-            // FIXME: Use proper jasmine api for failure in get:
-            get: function () { throw new Error('Unexpected behavior.') },
+        // Mock the callback-relevant parts of the API:
+        var mockcb = jasmine.createSpy('Client.get callback');
+        var capturedlistener = undefined;
+        mockxhr.addEventListener = function (_, listener) {
+          capturedlistener = listener;
+        };
 
-            set: function (v) {
-              expect(onreadystatechangevalue).not.toBeDefined();
-              onreadystatechangevalue = v;
-            },
-          });
-        */
+        spyOn(mockxhr, 'addEventListener').andCallThrough();
 
-        spyOn(window, 'XMLHttpRequest').andReturn(xhrobj);
+        var fakeresponse = {} // Just a singleton for comparison.
+        mockxhr.responseText = fakeresponse;
 
+
+        // Execute the code under test:
         var client = lafswapi.Client(baseurl);
-        client.get(cap, function (_) {});
 
-        // expect(onreadystatechangevalue).toBeDefined();
+        client.get(cap, mockcb);
 
         var expectedurl = baseurl + '/uri/' + encodeURIComponent(cap);
-        expect(xhrobj.open).toHaveBeenCalledWith('GET', expectedurl);
-        expect(xhrobj.send).toHaveBeenCalledWith();
+        expect(mockxhr.addEventListener).toHaveBeenCalledWith('load', jasmine.any(Function));
+        expect(mockxhr.open).toHaveBeenCalledWith('GET', expectedurl, true);
+        expect(mockxhr.send).toHaveBeenCalledWith();
+
+        /* Trigger our captured internal callback, which should
+         * delegate to the application code's callback (our mockcb):
+         */
+        capturedlistener();
+        expect(mockcb).toHaveBeenCalledWith(mockxhr.responseText);
       });
     });
   });
