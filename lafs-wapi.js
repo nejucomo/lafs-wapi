@@ -49,10 +49,9 @@
           var capurl = baseurl + '/uri/' + encodeURIComponent(cap);
 
           var xhr = new XMLHttpRequest();
+          xhr.addEventListener('load', function () { callback(xhr.responseText) });
           xhr.open(capurl);
           xhr.send();
-
-          throw new Error('Not Implemented: Client.get(..., callback) callback.');
         },
       };
     },
