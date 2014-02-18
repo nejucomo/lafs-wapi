@@ -45,9 +45,14 @@
       // Client instance:
       return {
         url: baseurl,
-        get: function (cap) {
+        get: function (cap, callback) {
+          var capurl = baseurl + '/uri/' + encodeURIComponent(cap);
+
           var xhr = new XMLHttpRequest();
-          throw new Error('Not Implemented: Client.get()');
+          xhr.open(capurl);
+          xhr.send();
+
+          throw new Error('Not Implemented: Client.get(..., callback) callback.');
         },
       };
     },
