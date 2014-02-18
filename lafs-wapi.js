@@ -50,7 +50,7 @@
 
           var xhr = new XMLHttpRequest();
           xhr.addEventListener('load', function () { callback(xhr.responseText) });
-          xhr.open(capurl);
+          xhr.open('GET', capurl, true);
           xhr.send();
         },
       };
