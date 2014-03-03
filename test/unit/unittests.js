@@ -20,6 +20,7 @@ describe('lafswapi', function () {
         // Some test input data:
         var baseurl = 'https://public.wapi.example.com/lafs-v42.59/';
         var cap = 'URI:FAKE_TEST_CAP:A';
+        var expectedurl = 'https://public.wapi.example.com/lafs-v42.59/uri/URI%3AFAKE_TEST_CAP%3AA';
 
         // Set up a mock for the non-callback-related parts of XMLHttpRequest usage:
         var mockxhr = jasmine.createSpyObj('XMLHttpRequest instance', ['open', 'send']);
@@ -49,7 +50,6 @@ describe('lafswapi', function () {
          * the internal callback, which is tested below.
          */
 
-        var expectedurl = baseurl + '/uri/' + encodeURIComponent(cap);
         expect(mockxhr.open).toHaveBeenCalledWith('GET', expectedurl, true);
         expect(mockxhr.send).toHaveBeenCalledWith();
 
